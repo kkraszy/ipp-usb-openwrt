@@ -14,6 +14,7 @@ define Package/ipp-usb
   CATEGORY:=Utilities
   TITLE:=ipp-usb
   PKGARCH:=all
+  DEPENDS:=+libusb-1.0 +libavahi-client
 endef
 
 define Build/Prepare
@@ -28,7 +29,7 @@ endef
 define Package/ipp-usb/install
 	$(INSTALL_DIR) $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ipp-usb $(1)/usr/bin/ipp-usb
-	$(CP) ./files/* $(1)/
+	$(CP) ./src/* $(1)/
 	$(CP) $(PKG_BUILD_DIR)/etc/ipp/ipp-usb.conf $(1)/etc/config/ipp-usb
 endef
 
