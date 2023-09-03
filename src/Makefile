@@ -9,7 +9,7 @@ ifeq ($(PREFIX),/)
 endif
 
 all:
-	go build
+	CGO_ENABLED=1 go build
 
 man:	$(MANPAGE)
 
