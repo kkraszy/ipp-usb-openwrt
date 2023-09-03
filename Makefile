@@ -1,6 +1,6 @@
 include $(TOPDIR)/rules.mk
 PKG_NAME:=ipp-usb
-PKG_VERSION:=0.01
+PKG_VERSION:=0.9.23
 PKG_RELEASE:=1
 PKG_BUILD_DEPENDS:=golang/host
 PKG_BUILD_DIR:=$(BUILD_DIR)/ipp-usb
