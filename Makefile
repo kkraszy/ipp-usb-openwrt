@@ -18,8 +18,6 @@ GO_PKG_LDFLAGS_X:=$(AGH_VERSION_PKG).channel=release \
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-values.mk
-MAKE_VARS = \
-GOARCH=$(GO_ARCH)
 
 define Package/ipp-usb
   SECTION:=utils
@@ -28,6 +26,7 @@ define Package/ipp-usb
   PKGARCH:=all
   DEPENDS:=$(GO_ARCH_DEPENDS) +libusb-1.0 +libavahi-client +libavahi-compat-libdnssd
 endef
+
 
 MAKE_VARS += \
 	GO_INSTALL_BIN_PATH="$(strip $(GO_PKG_INSTALL_BIN_PATH))" \
@@ -76,6 +75,10 @@ endef
 define Package/ipp-usb/install
 	$(INSTALL_DIR) $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ipp-usb $(1)/usr/bin/ipp-usb
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/ipp-usb.init $(1)/etc/init.d/ipp-usb
+	$(INSTALL_DIR) $(1)/etc/config
+	$(INSTALL_DATA) ./files/ipp-usb.conf $(1)/etc/config/ipp-usb
 endef
 
 $(eval $(call BuildPackage,ipp-usb))

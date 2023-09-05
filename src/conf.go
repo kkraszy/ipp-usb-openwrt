@@ -45,7 +45,7 @@ var Conf = Configuration{
 	HTTPMinPort:       60000,
 	HTTPMaxPort:       65535,
 	DNSSdEnable:       true,
-	LoopbackOnly:      true,
+	LoopbackOnly:      false,
 	IPV6Enable:        true,
 	ConfAuthUID:       nil,
 	LogDevice:         LogDebug,
