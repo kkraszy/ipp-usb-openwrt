@@ -24,7 +24,7 @@ define Package/ipp-usb
   CATEGORY:=Utilities
   TITLE:=ipp-usb
   PKGARCH:=all
-  DEPENDS:=$(GO_ARCH_DEPENDS) +libusb-1.0 +libavahi-client +libavahi-compat-libdnssd
+  DEPENDS:=$(GO_ARCH_DEPENDS) +libusb-1.0 +libavahi-client +libavahi-compat-libdnssd +avahi-utils
 endef
 
 
