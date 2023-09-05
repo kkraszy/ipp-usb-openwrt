@@ -9,7 +9,7 @@ ifeq ($(PREFIX),/)
 endif
 
 all:
-	CC=aarch64-openwrt-linux-musl-gcc GOOS=linux GOARCH=arm64 CGO_ENABLED=1 go build
+	go build
 
 man:	$(MANPAGE)
 
