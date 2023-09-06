@@ -77,8 +77,8 @@ define Package/ipp-usb/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ipp-usb $(1)/usr/bin/ipp-usb
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/ipp-usb.init $(1)/etc/init.d/ipp-usb
-	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_DATA) ./files/ipp-usb.conf $(1)/etc/config/ipp-usb
+	$(INSTALL_DIR) $(1)/etc/ipp-usb
+	$(INSTALL_DATA) ./files/ipp-usb.conf $(1)/etc/ipp-usb/ipp-usb.conf
 endef
 
 $(eval $(call BuildPackage,ipp-usb))
