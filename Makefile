@@ -4,6 +4,7 @@ PKG_VERSION:=0.9.23
 PKG_RELEASE:=1
 PKG_BUILD_DEPENDS:=golang/host
 PKG_BUILD_DIR:=$(BUILD_DIR)/ipp-usb
+PKG_BUILD_FLAGS:=no-mips16
 
 
 AGH_BUILD_TIME:=$(shell date -d @$(SOURCE_DATE_EPOCH) +%FT%TZ%z)
@@ -73,7 +74,7 @@ endef
 
 
 define Package/ipp-usb/install
-	$(INSTALL_DIR) $(1)/usr/bin/
+	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ipp-usb $(1)/usr/bin/ipp-usb
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/ipp-usb.init $(1)/etc/init.d/ipp-usb
